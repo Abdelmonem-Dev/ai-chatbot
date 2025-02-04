@@ -1,66 +1,165 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+AI Chatbot Project
+This project is a sophisticated AI Chatbot Web Application built with Laravel as the backend and JavaScript for the frontend. The chatbot interacts with an external AI API (such as OpenAI or DeepSeek) to process user messages and provide intelligent responses. The application includes features like file uploads (e.g., images), message history, and fallback responses in case of API failure.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Features
+Real-time Chat: Users can send messages and receive instant responses.
+File Upload: Users can send images as part of the conversation.
+AI Integration: The chatbot communicates with a third-party AI service.
+Fallback Responses: If the AI API fails, a default fallback response ("Hello") is returned.
+Modern UI: A sleek and interactive interface for chat communication.
+Requirements
+Before you begin, ensure you have the following:
 
-## About Laravel
+PHP 8.0 or higher
+Composer
+Node.js (for frontend)
+A valid AI API key (e.g., OpenAI, DeepSeek)
+Installation
+1. Clone the Repository
+Clone this repository to your local machine:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+bash
+Copy
+Edit
+git clone https://github.com/your-username/ai-chatbot.git
+cd ai-chatbot
+2. Install Backend Dependencies
+Run the following command to install PHP dependencies via Composer:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+bash
+Copy
+Edit
+composer install
+3. Install Frontend Dependencies
+Navigate to the frontend directory and install Node.js dependencies:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+bash
+Copy
+Edit
+npm install
+4. Configure Environment
+Copy the .env.example file to .env:
 
-## Learning Laravel
+bash
+Copy
+Edit
+cp .env.example .env
+Edit the .env file to include your AI API Key:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+env
+Copy
+Edit
+AI_API_KEY=your-api-key-here
+Also, ensure that other configuration settings like database credentials are correct.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+5. Generate Application Key
+Run the following command to generate the application key:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+bash
+Copy
+Edit
+php artisan key:generate
+6. Migrate the Database (if applicable)
+Run the database migrations if your application uses a database:
 
-## Laravel Sponsors
+bash
+Copy
+Edit
+php artisan migrate
+7. Start the Application
+You can now run the application using Laravel's built-in server:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+bash
+Copy
+Edit
+php artisan serve
+The application will be available at http://127.0.0.1:8000.
 
-### Premium Partners
+Usage
+Chatting with the Bot
+Open the Application: Access the app in your browser.
+Send a Message: Type your message in the chat input field and hit enter or click the send button.
+Bot Response: The bot will process the message and send a response.
+File Upload
+You can upload files (e.g., images) during the chat. The file will be converted into a Base64 string and sent to the backend.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+API Integration
+The backend uses Guzzle to make API requests to the external AI service.
+If the AI API fails, the app will return a fallback response ("Hello").
+Code Structure
+Backend (Laravel)
+app/Http/Controllers/AIChatbotController.php: Handles the logic for processing user messages and interacting with the AI API.
+routes/web.php: Contains the route definitions for chatbot functionality.
+.env: Stores environment variables, including the AI API key.
+Frontend (JavaScript)
+public/js/script.js: Contains the JavaScript code for interacting with the backend API, updating the chat, and handling user actions.
+resources/views/chat.blade.php: The main view for displaying the chatbot UI.
+Styling (HTML & CSS)
+The project includes clean and modern styles for the chat interface. Below is an example of how the styles are structured:
 
-## Contributing
+CSS Example
+css
+Copy
+Edit
+/* Basic Chat Window Styling */
+.chat-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f7f6;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+.chat-header {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
 
-## Code of Conduct
+.chat-box {
+  height: 400px;
+  overflow-y: scroll;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+}
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+.chat-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 16px;
+}
 
-## Security Vulnerabilities
+.chat-button {
+  padding: 10px;
+  background-color: #FF5722;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+.chat-button:hover {
+  background-color: #FF7849;
+}
+HTML Example
+html
+Copy
+Edit
+<div class="chat-container">
+  <div class="chat-header">AI Chatbot</div>
+  <div class="chat-box" id="chatBox"></div>
+  <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+  <button class="chat-button" id="sendButton">Send</button>
+</div>
+Troubleshooting
+No valid response from the bot: If you encounter this error, ensure that the AI API key is correctly set in the .env file and that the API is functioning correctly.
+File Upload Issues: Ensure that the server is configured to accept large file uploads if required.
+License
+This project is licensed under the MIT License.

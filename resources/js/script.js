@@ -6,12 +6,14 @@ const fileUploadWrapper = document.querySelector('.file-upload-wrapper');
 const fileCancelButton = document.querySelector('#file-cancel');
 const chatbotToggler = document.querySelector('#chatbot-toggler');
 const closeChatbot = document.querySelector('#close-chatbot');
+const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 
 
 // API URL and API key
-const API_KEY = 'AIzaSyARP6hleR09y_6fr8GdKV_A69kfgJV_JC8';
-const API_URL =  `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+// const API_KEY = 'AIzaSyARP6hleR09y_6fr8GdKV_A69kfgJV_JC8';
+// const API_URL =  `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 const userData = {
     message: null,
@@ -34,49 +36,56 @@ const createMessageElement = (content, ...classes) => {
 
 // Generate bot response
 const generateBotResponse = async (incomingMessageDiv) => {
-  const messageElement = incomingMessageDiv.querySelector('.message-text');
+    const messageElement = incomingMessageDiv.querySelector('.message-text');
 
-  // Save user message to chat history
-  chatHistory.push({
-    role: 'user',
-    parts:[{ text: userData.message }, ...(userData.file.data ? [{inline_data: userData.file }] : [])]
-  });
-
-  // API request options
-  const requestOptions = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      contents: chatHistory
-    }),
-  };
-  try {
-    // Fetch data from API
-    const response = await fetch(API_URL, requestOptions);
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error.message);
-
-    // Display bot response
-    const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1').trim();
-    messageElement.innerText = apiResponseText;
-
-    // Save bot response to chat history
+    // Save user message to chat history
     chatHistory.push({
-      role: 'model',
-      parts:[{ text: apiResponseText }]
+        role: 'user',
+        parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
     });
-  } catch (error) {
-    // Display error message of API response
-    console.error(error);
-    messageElement.innerText = error.message;
-    messageElement.style.color = 'red';
-  } finally {
-    // Reset file data and remove thinking indicator and scroll to bottom
-    userData.file = {};
-    incomingMessageDiv.classList.remove('thinking');
-    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
-  }
+
+    // API request options
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken,
+        },
+        body: JSON.stringify({
+            contents: chatHistory,
+        }),
+    };
+
+    try {
+        // Fetch data from API
+        const response = await fetch('/chat', requestOptions);
+        const data = await response.json();
+
+        if (!response.ok || !data.candidates || data.candidates.length === 0) {
+            throw new Error('No valid response from the bot.');
+        }
+
+        const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1').trim();
+        messageElement.innerText = apiResponseText;
+
+        // Save bot response to chat history
+        chatHistory.push({
+            role: 'model',
+            parts: [{ text: apiResponseText }],
+        });
+    } catch (error) {
+        // Display error message of API response
+        console.error(error);
+        messageElement.innerText = error.message;
+        messageElement.style.color = 'red';
+    } finally {
+        // Reset file data and remove thinking indicator and scroll to bottom
+        userData.file = {};
+        incomingMessageDiv.classList.remove('thinking');
+        chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+    }
 };
+
 
 // Handle outcoming user message
 const handleOutgoingMessage = (e) => {

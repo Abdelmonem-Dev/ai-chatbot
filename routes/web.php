@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AIChatbotController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -11,9 +12,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::post('/chat', [AIChatbotController::class, 'chat']);
+
 Route::get('/chat', function () {
     return view('ai-chat');
 })->middleware(['auth', 'verified'])->name('ai-chat');
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
