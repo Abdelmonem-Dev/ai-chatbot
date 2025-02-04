@@ -14,4 +14,6 @@
             </div>
         </div>
     </div>
+    
+    <x-ai-chat />
 </x-app-layout>
