@@ -10,10 +10,6 @@ const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute
 
 
 
-// API URL and API key
-
-// const API_KEY = 'AIzaSyARP6hleR09y_6fr8GdKV_A69kfgJV_JC8';
-// const API_URL =  `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 const userData = {
     message: null,
