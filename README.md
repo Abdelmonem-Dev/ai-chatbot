@@ -104,9 +104,9 @@ You can upload files (e.g., images) during the chat. The file will be sent to th
 
 API Integration
 The backend uses Guzzle to interact with the AI API.
-
+```
 If the API fails, the chatbot will return a fallback response ("Hello").
-
+```
 📂 Project Structure
 Backend (Laravel)
 app/Http/Controllers/AIChatbotController.php: Handles chatbot logic and API integration.
