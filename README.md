@@ -55,7 +55,7 @@ Before you begin, ensure you have the following installed:
 ```bash
 git clone https://github.com/your-username/ai-chatbot.git
 cd ai-chatbot
-Run HTML
+
 2. Install Backend Dependencies
 Install PHP dependencies using Composer:
 
