@@ -1,10 +1,6 @@
 <h1 align="center">🤖 AI Chatbot Web Application</h1>
 
 <p align="center">
-  <img src="https://via.placeholder.com/800x400.png?text=Chatbot+Demo" alt="Chatbot Demo" />
-</p>
-
-<p align="center">
   A sophisticated AI-powered chatbot web application built with <strong>Laravel</strong> (backend) and <strong>JavaScript</strong> (frontend). The chatbot integrates with external AI APIs (e.g., OpenAI, DeepSeek) to provide real-time, intelligent responses. It supports features like <strong>file uploads</strong>, <strong>message history</strong>, and <strong>fallback responses</strong> for a seamless user experience.
 </p>
 
@@ -137,4 +133,4 @@ Open a pull request.
 📄 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-```
+
