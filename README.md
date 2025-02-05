@@ -113,10 +113,10 @@ routes/web.php: Defines routes for the chatbot functionality.
 .env: Stores environment variables, including the AI API key.
 
 Frontend (JavaScript)
-public/js/script.js: Manages frontend interactions, API calls, and chat updates.
-
-resources/views/chat.blade.php: The main view for the chatbot interface.
-
+for the front-end I used a depository for Patrik Persson
+```
+Patrik Persson :<a href="https://github.com/patrik1970/ai-chatbot-html-css-javascript"> ai-chatbot-html-css-javascript </a> 
+```
 🛠️ Troubleshooting
 No response from the bot: Ensure the AI API key is correctly set in the .env file and the API is operational.
 
