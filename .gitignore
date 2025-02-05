@@ -1,23 +1,74 @@
+# PHP and Laravel specific
+
 /.phpunit.cache
-/node_modules
+/phpunit.result.cache
+/phpactor.json
+/.fleet
+/Homestead.json
+/Homestead.yaml
+
+# Node modules (for front-end dependencies)
+node_modules/
+
+# Composer dependencies
+/vendor
+
+# Vite build files
 /public/build
 /public/hot
-/public/storage
-/storage/*.key
-/storage/pail
-/vendor
+/vite/
+
+# Public files (temporary storage, build, and cache)
+public/storage
+public/cache
+public/js/
+public/css/
+
+# Environment configuration files
 .env
+.env.local
+.env.*.local
 .env.backup
 .env.production
-.phpactor.json
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
+
+# Logs and temporary files
 npm-debug.log
 yarn-error.log
-/auth.json
-/.fleet
+*.log
+*.sql
+*.sqlite
+
+# Miscellaneous files
+/storage/*.key
+/storage/pail
+*.bak
+*.swp
+*.tmp
+*.temp
+Thumbs.db
+
+# IDE and editor specific files
 /.idea
-/.nova
 /.vscode
+/.nova
 /.zed
+
+# Mac OS specific files
+.DS_Store
+
+# Composer lock file
+composer.lock
+
+# Front-end build tools (npm, yarn)
+package-lock.json
+yarn.lock
+
+# SASS cache (if you're using Sass)
+.sass-cache/
+
+# PHPUnit test results
+phpunit.xml
+phpunit.xml.dist
+
+# Coverage directories (from PHPUnit or other tools)
+coverage/
