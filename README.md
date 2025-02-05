@@ -111,16 +111,12 @@ app/Http/Controllers/AIChatbotController.php: Handles chatbot logic and API inte
 routes/web.php: Defines routes for the chatbot functionality.
 
 .env: Stores environment variables, including the AI API key.
-
-Frontend (JavaScript)
-for the front-end I used a depository for Patrik Persson
 ```
+Frontend (JavaScript)
+for the front end, I used a depository for Patrik Persson
+
 Patrik Persson :<a href="https://github.com/patrik1970/ai-chatbot-html-css-javascript"> ai-chatbot-html-css-javascript </a> 
 ```
-🛠️ Troubleshooting
-No response from the bot: Ensure the AI API key is correctly set in the .env file and the API is operational.
-
-File upload issues: Check server configurations for file size limits and permissions.
 
 🤝 Contributing
 Contributions are welcome! Please follow these steps:
@@ -138,12 +134,6 @@ Open a pull request.
 📄 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-🙏 Acknowledgments
-Laravel for the powerful PHP framework.
-
-OpenAI or DeepSeek for the AI API.
-
-Contributors and the open-source community.
 
 🎨 Custom CSS for GitHub README
 While GitHub doesn’t support full CSS, you can use inline styles for basic enhancements. Here’s an example of how to style sections:
