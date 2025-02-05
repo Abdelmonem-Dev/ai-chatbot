@@ -134,19 +134,4 @@ Open a pull request.
 📄 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-
-🎨 Custom CSS for GitHub README
-While GitHub doesn’t support full CSS, you can use inline styles for basic enhancements. Here’s an example of how to style sections:
-
-
-<div style="background-color: #f4f7f6; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-  <h2 style="color: #333; border-bottom: 2px solid #FF5722; padding-bottom: 10px;">✨ Features</h2>
-  <ul style="list-style-type: none; padding: 0;">
-    <li style="padding: 10px; background-color: #fff; margin-bottom: 10px; border-radius: 4px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
-      <strong>Real-time Chat</strong>: Instant messaging with AI-powered responses.
-    </li>
-    <li style="padding: 10px; background-color: #fff; margin-bottom: 10px; border-radius: 4px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
-      <strong>File Upload</strong>: Upload images and other files during conversations.
-    </li>
-  </ul>
-</div>
+```
