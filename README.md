@@ -40,6 +40,7 @@ Before you begin, ensure you have the following installed:
 - PHP 8.0 or higher
 - Composer
 - Node.js (for frontend dependencies)
+- vite
 - A valid AI API key (e.g., OpenAI, DeepSeek)
 ```
 
