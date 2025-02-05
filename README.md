@@ -40,13 +40,13 @@
 ## 🛠️ Prerequisites
 
 Before you begin, ensure you have the following installed:
-
+```
 - PHP 8.0 or higher
 - Composer
 - Node.js (for frontend dependencies)
 - A valid AI API key (e.g., OpenAI, DeepSeek)
+```
 
----
 
 ## 🚀 Installation
 
@@ -55,37 +55,40 @@ Before you begin, ensure you have the following installed:
 ```bash
 git clone https://github.com/your-username/ai-chatbot.git
 cd ai-chatbot
-
+```
 2. Install Backend Dependencies
 Install PHP dependencies using Composer:
-
-
+```
 composer install
-3. Install Frontend Dependencies
+```
+4. Install Frontend Dependencies
 Install Node.js dependencies:
-
-
+```
 npm install
+```
+
 4. Configure Environment
 Copy the .env.example file to .env and update it with your API key and other settings:
-
-
 cp .env.example .env
 Edit the .env file:
-
+```
 AI_API_KEY=your-api-key-here
 AI_API_URL=https://api.deepseek.com/v1/chat/completions
-
-5. Generate Application Key
+```
+6. Generate Application Key
 Generate a unique application key:
+```
 php artisan key:generate
-
-6. Run Database Migrations 
+```
+8. Run Database Migrations  
+```
 php artisan migrate
+```
 
-7. Start the Application
+9. Start the Application
+```
 php artisan serve
-
+```
 Visit http://127.0.0.1:8000 in your browser to access the application.
 
 💡 Usage
@@ -112,7 +115,7 @@ routes/web.php: Defines routes for the chatbot functionality.
 
 .env: Stores environment variables, including the AI API key.
 ```
-Frontend (JavaScript)
+Frontend (JavaScript/HTML/CSS)
 for the front end, I used a depository for Patrik Persson
 
 Patrik Persson :<a href="https://github.com/patrik1970/ai-chatbot-html-css-javascript"> ai-chatbot-html-css-javascript </a> 
