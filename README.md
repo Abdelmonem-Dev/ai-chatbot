@@ -78,19 +78,14 @@ AI_API_URL=https://api.deepseek.com/v1/chat/completions
 
 5. Generate Application Key
 Generate a unique application key:
-
-
 php artisan key:generate
-6. Run Database Migrations (if applicable)
-If your application uses a database, run the migrations:
 
-
+6. Run Database Migrations 
 php artisan migrate
+
 7. Start the Application
-Run the Laravel development server:
-
-
 php artisan serve
+
 Visit http://127.0.0.1:8000 in your browser to access the application.
 
 💡 Usage
